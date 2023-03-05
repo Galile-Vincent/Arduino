@@ -1,0 +1,25 @@
+#include <Servo.h>
+  Servo servo5;
+
+void setup() {
+  // put your setup code here, to run once:
+  servo5.attach(9);
+  pinMode(3,OUTPUT); //red
+  pinMode(4,OUTPUT); //white
+  pinMode(5,OUTPUT); //green
+}
+
+void loop() {
+  //紅綠燈 red 10s, white 2s, green 15s
+  digitalWrite(5,HIGH);
+  servo5.write(0);
+  delay(15000);
+  digitalWrite(5,LOW);
+  digitalWrite(4,HIGH);
+  delay(2000);
+  digitalWrite(4,LOW);
+  digitalWrite(3,HIGH);
+  servo5.write(90);
+  delay(10000);
+  digitalWrite(3,LOW);
+}
